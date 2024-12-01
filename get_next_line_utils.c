@@ -6,37 +6,12 @@
 /*   By: etorun <etorun@student.42istanbul.com.t    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/30 09:37:09 by etorun            #+#    #+#             */
-/*   Updated: 2024/11/30 20:28:21 by etorun           ###   ########.fr       */
+/*   Updated: 2024/12/01 16:12:32 by etorun           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-char	*ft_substr(const char *s, unsigned int start, size_t len)
-{
-	char	*str;
-	char	*src;
 
-	src = (char *)s;
-	if (!src)
-		return (NULL);
-	if (start >= ft_strlen(s))
-	{
-		str = (char *)malloc(sizeof(char));
-		if (!str)
-			return (NULL);
-		*str = '\0';
-	}
-	else
-	{
-		if ((ft_strlen(s) - start) < len)
-			len = ft_strlen(s) - start;
-		str = (char *)malloc((sizeof(char) * len) + 1);
-		if (!str)
-			return (NULL);
-		ft_strlcpy(str, (char *)(s + start), len + 1);
-	}
-	return (str);
-}
 size_t	ft_strlen(const char *s)
 {
 	size_t	i;
@@ -48,6 +23,7 @@ size_t	ft_strlen(const char *s)
 	}
 	return (i);
 }
+
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
 	size_t	counter;
@@ -64,6 +40,7 @@ size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 	}
 	return (ft_strlen(src));
 }
+
 char	*ft_strchr(const char *s, int c)
 {
 	int	counter;
@@ -79,6 +56,7 @@ char	*ft_strchr(const char *s, int c)
 	}
 	return (NULL);
 }
+
 char	*ft_strjoin(char const *s1, char const *s2)
 {
 	char	*result;
@@ -104,19 +82,7 @@ char	*ft_strjoin(char const *s1, char const *s2)
 	result[i] = '\0';
 	return (result);
 }
-void	*ft_calloc(size_t count, size_t size)
-{
-	void	*ret;
 
-	ret = malloc(count * size);
-	if (ret)
-		ft_bzero(ret, count * size);
-	return (ret);
-}
-void	ft_bzero(void *s, size_t n)
-{
-	ft_memset(s, '\0', n);
-}
 void	*ft_memset(void *b, int c, size_t len)
 {
 	size_t	counter;
